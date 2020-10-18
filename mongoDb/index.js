@@ -56,3 +56,29 @@ db.posts.insertMany([
 //  db.posts.find().sort({title:-1}).limit(2) -> limit is used to show only the limited table from database
 //  db.posts.find().forEach(function(doc){print('Blog post : '+doc.title)})
 //
+
+// Update
+db.posts.update(
+  { title: "post two" },
+  {
+    title: "post two",
+    body: "New post 2 body",
+    date: Date(),
+  },
+  {
+    updert: true,
+  }
+);
+// using this method we can overwite the post
+
+// anothe method for update
+db.posts.update(
+  { title: "post two" },
+  {
+    $set: {
+      category: "Technology",
+      body: "Body of post two",
+    },
+  }
+);
+// using this method we can add the post and update the post with out removing the exgesting post or data
